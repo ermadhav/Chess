@@ -1,0 +1,62 @@
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: repeat(8, minmax(0, 1fr));
+    width: 400px;
+    height: 400px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease; /* Smooth flipping effect */
+}
+
+.piece.white {
+    color: white;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+}
+
+.piece.black {
+    color: black;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 1)); /* Enhance contrast for black pieces */
+    background-color: #222; /* Add a subtle background color to black pieces */
+    padding: 5px; /* Add some padding for better visibility */
+    border: 3px solid white; /* Add a strong white border for better visibility */
+    border-radius: 3px; /* Give a slight rounded effect */
+}
+
+.flipped {
+    transform: rotate(180deg);
+}
+
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.square.light {
+    background-color: #f0d9b5;
+}
+
+.square.dark {
+    background-color: #b58863;
+}
+
+.piece {
+    font-size: 36px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth rotation for pieces */
+}
+
+.piece.draggable {
+    cursor: grab;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+/* Rotate pieces for black player */
+.flipped .piece {
+    transform: rotate(180deg);
+    filter: invert(1); /* Invert color for black pieces when flipped */
+    border: 3px solid white; /* Ensure border is applied when flipped */
+}
